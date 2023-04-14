@@ -1,7 +1,7 @@
 package pro.sky.java.course2.homework.exeptions;
 
 public class Person {
-
+    ValidServiceImpl validService = new ValidServiceImpl();
     private String login;
     private String password;
     private String confirmPassword;
@@ -38,7 +38,7 @@ public class Person {
 
     public void getPerson() {
         try {
-            ValidServiceImpl.check(login, password, confirmPassword);
+            validService.check(login, password, confirmPassword);
         } catch (WrongLoginException e) {
             throw new RuntimeException(e);
         } catch (WrongPasswordException e) {

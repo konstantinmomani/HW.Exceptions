@@ -3,8 +3,9 @@ package pro.sky.java.course2.homework.exeptions;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ValidServiceImpl {
-    public static void check(String login, String password, String confirmPassword)
+public class ValidServiceImpl implements ValidService {
+
+    public void check(String login, String password, String confirmPassword)
             throws WrongLoginException, WrongPasswordException {
         Pattern pattern = Pattern.compile("\\w+");
         Matcher matcherLogin = pattern.matcher(login);
