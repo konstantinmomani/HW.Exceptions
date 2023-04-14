@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class ValidServiceImpl implements ValidService {
 
     public void check(String login, String password, String confirmPassword)
-            throws WrongLoginException, WrongPasswordException {
+            throws WrongLoginException, WrongPasswordException, WrongConfirmPasswordException {
         Pattern pattern = Pattern.compile("\\w+");
         Matcher matcherLogin = pattern.matcher(login);
         Matcher matcherPass = pattern.matcher(password);
@@ -23,7 +23,7 @@ public class ValidServiceImpl implements ValidService {
         if (confirmPassMatches && confirmPassword.equals(password)) {
 //            Думаю, 1-е условие нужно убрать
             System.out.println(confirmPassword);
-        } else throw new WrongPasswordException("Confirm differ from password");
+        } else throw new WrongConfirmPasswordException("Confirm differ from password");
     }
 
 

@@ -37,12 +37,15 @@ public class Person {
     }
 
     public void getPerson() {
+//        2 варианта вывода
         try {
             validService.check(login, password, confirmPassword);
         } catch (WrongLoginException e) {
             throw new RuntimeException(e);
         } catch (WrongPasswordException e) {
-            throw new RuntimeException(e);
+            System.err.println(e.getMessage());
+        } catch (WrongConfirmPasswordException e) {
+            System.err.println(e.getMessage());
         }
     }
 
